@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Índice de Excel API</title>
+</head>
+<body>
+    <h1>Bienvenido a la API de:</h1>
+    <h2>Vacunación contra el sarampión en niños entre 12-23 meses</h2>
+    <ul>
+        <li><a href="{{ url_for('get_data') }}">Datos</a></li>
+        <li><a href="{{ url_for('get_metadata_countries') }}">Metadatos de países</a></li>
+        <li><a href="{{ url_for('get_metadata_indicators') }}">Metadatos de indicadores</a></li>
+    </ul>
+</body>
+</html>

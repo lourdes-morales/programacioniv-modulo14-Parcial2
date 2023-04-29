@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Datos de Vacunación - Data</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="form-group">
+      <label for="filtro">Filtrar:</label>
+      <input id="filtro" type="text" class="form-control" placeholder="Ingrese un término...">
+    </div>
+    <div class="mx-auto">
+      <table id="tabla-datos" class="table">
+        <thead>
+          <tr>
+            <th>Country Name</th>
+            <th>Country Code</th>
+            <th>Indicator Name</th>
+            <th>Indicator Code</th>
+            {% for year in years %}
+            <th>{{ year }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for dato in datos %}
+          <tr>
+            <td>{{ dato['Country Name'] }}</td>
+            <td>{{ dato['Country Code'] }}</td>
+            <td>{{ dato['Indicator Name'] }}</td>
+            <td>{{ dato['Indicator Code'] }}</td>
+            {% for year in years %}
+            <td>{{ dato[year] }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.2/datatables.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
